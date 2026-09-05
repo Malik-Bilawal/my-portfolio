@@ -13,7 +13,7 @@ type FormState = {
 
 type SubmitStatus = "idle" | "loading" | "success" | "error";
 
-const WEB3FORMS_KEY = "YOUR_ACCESS_KEY_HERE";
+const WEB3FORMS_KEY = "697ad10d-201a-4416-827b-ebc15d9c05ad";
 
 export default function Contact() {
   const ref = useRef(null);
