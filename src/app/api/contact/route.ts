@@ -38,17 +38,28 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Message must be at least 10 characters." }, { status: 400 });
     }
 
+    const emailUser = process.env.CONTACT_EMAIL;
+    const emailPass = process.env.CONTACT_EMAIL_PASS;
+
+    if (!emailUser || !emailPass) {
+      console.error("Missing CONTACT_EMAIL or CONTACT_EMAIL_PASS env vars");
+      return NextResponse.json(
+        { error: "Email service not configured yet. Please contact me directly at " + (emailUser || "my email") },
+        { status: 503 }
+      );
+    }
+
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.CONTACT_EMAIL,
-        pass: process.env.CONTACT_EMAIL_PASS,
+        user: emailUser,
+        pass: emailPass,
       },
     });
 
     await transporter.sendMail({
-      from: process.env.CONTACT_EMAIL,
-      to: process.env.CONTACT_EMAIL,
+      from: emailUser,
+      to: emailUser,
       replyTo: email,
       subject: `Portfolio Contact: ${name}`,
       html: `

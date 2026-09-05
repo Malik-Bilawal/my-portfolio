@@ -24,12 +24,14 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   background: #0a0a0f;
   color: #ededed;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
 /* Glow effects */
@@ -215,6 +217,11 @@ body {
 
   section {
     scroll-margin-top: 80px;
+  }
+
+  .gradient-border,
+  .gradient-border::before {
+    max-width: 100%;
   }
 }
 

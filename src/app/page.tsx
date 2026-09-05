@@ -18,7 +18,7 @@ const Footer = dynamic(() => import("@/components/Footer"), { ssr: false });
 
 export default function Home() {
   return (
-    <main className="relative">
+    <main className="relative overflow-x-hidden">
       <ScrollProgress />
       <Navbar />
       <Hero />
