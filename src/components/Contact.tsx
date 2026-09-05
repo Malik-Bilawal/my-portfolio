@@ -13,6 +13,8 @@ type FormState = {
 
 type SubmitStatus = "idle" | "loading" | "success" | "error";
 
+const WEB3FORMS_KEY = "YOUR_ACCESS_KEY_HERE";
+
 export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -38,13 +40,18 @@ export default function Contact() {
 
     setStatus("loading");
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error);
+      if (!data.success) throw new Error(data.message || "Submission failed");
       setStatus("success");
       setForm({ name: "", email: "", message: "" });
       setErrors({});
@@ -86,11 +93,15 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+              {/* Honeypot */}
+              <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
+
               {/* Name */}
               <div>
                 <div className="relative">
                   <input
                     type="text"
+                    name="name"
                     value={form.name}
                     onChange={(e) => handleChange("name", e.target.value)}
                     className={`w-full px-5 py-4 rounded-xl bg-dark-card border text-foreground placeholder-gray-600 focus:border-cyan transition-colors font-mono text-sm ${
@@ -102,12 +113,7 @@ export default function Contact() {
                 </div>
                 <AnimatePresence>
                   {errors.name && (
-                    <motion.p
-                      initial={{ opacity: 0, y: -5 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -5 }}
-                      className="text-red-400 text-xs font-mono mt-1.5 ml-1"
-                    >
+                    <motion.p initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -5 }} className="text-red-400 text-xs font-mono mt-1.5 ml-1">
                       {errors.name}
                     </motion.p>
                   )}
@@ -119,6 +125,7 @@ export default function Contact() {
                 <div className="relative">
                   <input
                     type="email"
+                    name="email"
                     value={form.email}
                     onChange={(e) => handleChange("email", e.target.value)}
                     className={`w-full px-5 py-4 rounded-xl bg-dark-card border text-foreground placeholder-gray-600 focus:border-cyan transition-colors font-mono text-sm ${
@@ -130,12 +137,7 @@ export default function Contact() {
                 </div>
                 <AnimatePresence>
                   {errors.email && (
-                    <motion.p
-                      initial={{ opacity: 0, y: -5 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -5 }}
-                      className="text-red-400 text-xs font-mono mt-1.5 ml-1"
-                    >
+                    <motion.p initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -5 }} className="text-red-400 text-xs font-mono mt-1.5 ml-1">
                       {errors.email}
                     </motion.p>
                   )}
@@ -147,6 +149,7 @@ export default function Contact() {
                 <div className="relative">
                   <textarea
                     rows={5}
+                    name="message"
                     value={form.message}
                     onChange={(e) => handleChange("message", e.target.value)}
                     className={`w-full px-5 py-4 rounded-xl bg-dark-card border text-foreground placeholder-gray-600 focus:border-cyan transition-colors font-mono text-sm resize-none ${
@@ -159,12 +162,7 @@ export default function Contact() {
                 <div className="flex justify-between items-center mt-1.5 ml-1">
                   <AnimatePresence>
                     {errors.message && (
-                      <motion.p
-                        initial={{ opacity: 0, y: -5 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -5 }}
-                        className="text-red-400 text-xs font-mono"
-                      >
+                      <motion.p initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -5 }} className="text-red-400 text-xs font-mono">
                         {errors.message}
                       </motion.p>
                     )}
@@ -175,7 +173,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Submit button */}
+              {/* Submit */}
               <motion.button
                 whileHover={{ scale: status === "loading" ? 1 : 1.02 }}
                 whileTap={{ scale: status === "loading" ? 1 : 0.98 }}
