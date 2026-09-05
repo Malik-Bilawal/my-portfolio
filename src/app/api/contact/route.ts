@@ -42,9 +42,8 @@ export async function POST(req: NextRequest) {
     const emailPass = process.env.CONTACT_EMAIL_PASS;
 
     if (!emailUser || !emailPass) {
-      console.error("Missing CONTACT_EMAIL or CONTACT_EMAIL_PASS env vars");
       return NextResponse.json(
-        { error: "Email service not configured yet. Please contact me directly at " + (emailUser || "my email") },
+        { error: "Email not configured. Env vars missing." },
         { status: 503 }
       );
     }
@@ -53,9 +52,21 @@ export async function POST(req: NextRequest) {
       service: "gmail",
       auth: {
         user: emailUser,
-        pass: emailPass,
+        pass: emailPass.replace(/\s/g, ""),
       },
     });
+
+    // Verify connection first
+    try {
+      await transporter.verify();
+    } catch (verifyErr: unknown) {
+      const msg = verifyErr instanceof Error ? verifyErr.message : "Unknown verify error";
+      console.error("SMTP verify failed:", msg);
+      return NextResponse.json(
+        { error: "Email connection failed. Check credentials. Details: " + msg },
+        { status: 500 }
+      );
+    }
 
     await transporter.sendMail({
       from: emailUser,
@@ -79,8 +90,9 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json({ success: true, message: "Message sent successfully!" });
-  } catch (error) {
-    console.error("Contact form error:", error);
-    return NextResponse.json({ error: "Failed to send message. Try again later." }, { status: 500 });
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : "Unknown error";
+    console.error("Contact form error:", msg);
+    return NextResponse.json({ error: "Failed: " + msg }, { status: 500 });
   }
 }
