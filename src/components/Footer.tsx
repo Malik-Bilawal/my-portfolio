@@ -77,13 +77,8 @@ export default function Footer() {
         <div className="section-divider mt-8 mb-6" />
 
         <div className="text-center">
-          <p className="text-xs text-gray-600 font-mono flex items-center justify-center gap-1">
-            Built with <Heart size={12} className="text-pink" /> using Next.js
-            & Tailwind CSS
-          </p>
-          <p className="text-xs text-gray-700 font-mono mt-1">
-            &copy; {new Date().getFullYear()} {personalInfo.name}. All rights
-            reserved.
+          <p className="text-xs text-gray-600 font-mono">
+            &copy; {new Date().getFullYear()} {personalInfo.name}. Crafted with <Heart size={10} className="inline text-pink" /> from Karachi
           </p>
         </div>
       </div>
