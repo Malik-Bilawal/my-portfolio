@@ -28,7 +28,7 @@ export default function Projects() {
   });
 
   return (
-    <section id="projects" className="relative py-24 md:py-32 px-4">
+    <section id="projects" className="relative py-14 md:py-28 px-4">
       <div className="max-w-6xl mx-auto" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 16 }}

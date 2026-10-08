@@ -24,9 +24,9 @@ export default function About() {
   });
 
   return (
-    <section id="about" className="relative py-24 md:py-32 px-4">
+    <section id="about" className="relative py-14 md:py-28 px-4">
       <div className="max-w-6xl mx-auto" ref={ref}>
-        <motion.div {...fade(0)} className="mb-12">
+        <motion.div {...fade(0)} className="mb-8 md:mb-12">
           <p className="eyebrow">About</p>
           <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
             Building software that holds up in production

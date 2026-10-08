@@ -18,13 +18,13 @@ export default function Skills() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="relative py-24 md:py-32 px-4">
+    <section id="skills" className="relative py-14 md:py-28 px-4">
       <div className="max-w-6xl mx-auto" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, ease: EASE_OUT }}
-          className="mb-12"
+          className="mb-8 md:mb-12"
         >
           <p className="eyebrow">Skills</p>
           <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">

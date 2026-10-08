@@ -1,4 +1,5 @@
 import { systemPrompt } from "@/lib/knowledge";
+import { analyzeMessage } from "@/lib/guard";
 
 export const runtime = "edge";
 export const maxDuration = 30;
@@ -7,6 +8,15 @@ const MAX_MESSAGES = 12;
 const MAX_MESSAGE_CHARS = 400;
 
 type ChatMessage = { role: "user" | "assistant"; content: string };
+
+/** Health check — lets you verify env config without leaking the key. */
+export async function GET() {
+  return Response.json({
+    ok: true,
+    configured: Boolean(process.env.GROQ_API_KEY),
+    model: process.env.GROQ_MODEL || "qwen/qwen3.8-27b",
+  });
+}
 
 export async function POST(req: Request) {
   const apiKey = process.env.GROQ_API_KEY;
@@ -42,6 +52,16 @@ export async function POST(req: Request) {
     return new Response("Invalid request", { status: 400 });
   }
 
+  // Rule-based layer: unexpected questions are handled here,
+  // before any LLM call is made.
+  const verdict = analyzeMessage(cleaned[cleaned.length - 1].content);
+  if (verdict.blocked) {
+    return new Response(verdict.response, {
+      status: 200,
+      headers: { "Content-Type": "text/plain; charset=utf-8" },
+    });
+  }
+
   try {
     const groqRes = await fetch(
       "https://api.groq.com/openai/v1/chat/completions",
@@ -63,6 +83,13 @@ export async function POST(req: Request) {
         }),
       }
     );
+
+    if (groqRes.status === 429) {
+      return new Response(
+        "I'm receiving a lot of questions right now — please wait a few seconds and ask again.",
+        { status: 200, headers: { "Content-Type": "text/plain; charset=utf-8" } }
+      );
+    }
 
     if (!groqRes.ok || !groqRes.body) {
       console.error("Groq error:", groqRes.status, await groqRes.text());
