@@ -2,7 +2,6 @@ import {
   Code2,
   Server,
   Database,
-  Wrench,
   Globe,
   Layers,
   Shield,
@@ -28,10 +27,9 @@ export const personalInfo = {
 };
 
 export const stats = [
-  { label: "Projects Delivered", value: 15 },
-  { label: "Years Experience", value: 3 },
-  { label: "Technologies", value: 20 },
-  { label: "Cups of Coffee", value: 999 },
+  { label: "Projects Delivered", value: "10+" },
+  { label: "Years Experience", value: "2+" },
+  { label: "Technologies", value: "15+" },
 ];
 
 export type SkillCategory = "backend" | "frontend" | "databases" | "tools";
@@ -106,10 +104,11 @@ export const experiences = [
 
 export const projects = [
   {
-    title: "LUMIS",
+    title: "LUMS",
     subtitle: "Luxorix Commerce Management System",
     description:
       "Enterprise-level commerce management system with 40+ modules including custom ERP, HRMS, SOC, and POS functionality. Built over 1.3 years of continuous development.",
+      
     tech: ["Laravel", "MySQL", "Redis", "Firebase", "PHP", "JavaScript"],
     highlights: [
       "40+ custom modules",
@@ -135,18 +134,73 @@ export const projects = [
     featured: false,
   },
   {
-    title: "Employee Management",
-    subtitle: "MERN Stack Application",
+    title: "Campus Coin",
+    subtitle: "Budget Bee",
     description:
-      "Full-stack employee management system built with the MERN stack, featuring real-time data management and communication.",
-    tech: ["React.js", "Node.js", "Express.js", "MongoDB"],
+      "A Ai powered end to end student budget tracking application with ai insights, voice assistant, ai generated tips and many more.",
+    tech: ["React(Next js)", "Node.js", "Express.js", "MongoDB"],
     highlights: [
       "Full-stack MERN",
       "Real-time updates",
       "REST API",
-      "Responsive UI",
+      "Mobile first  UI",
     ],
     featured: false,
+  },
+
+  {
+    title: "Full Stack Ecommerce Application",
+    subtitle: "Shahid Insaf Shoes",
+    description:
+      "A Full stack  ecommerce web application with core commerce functionality ( browsing , searching , cart , checkout , order tracking  etcs) ",
+      tech: ["React(Next js)", "Node.js", "Express.js", "MongoDB"],
+
+    highlights: [
+      "Full-stack MERN",
+      "Real-time updates",
+      "REST API",
+      "Mobile first  UI",
+    ],
+    featured: false,
+  },
+];
+
+export const education = [
+  {
+    institution: "Kiran AcademY",
+    credential: "Matriculation",
+    faculty: "Computer Science",
+    period: "2022 — 2024",
+    status: "Completed",
+    detail:
+      "Foundation in mathematics and computer science fundamentals with a focus on analytical problem solving.",
+  },
+  {
+    institution: "Islamic College Karachi",
+    credential: "Intermediate (Faculty of Computer Science)",
+    faculty: "Computer Science",
+    period: "2024 — 2026",
+    status: "Completed",
+    detail:
+      "Pre-university computer science track covering programming logic, discrete mathematics, and ICT fundamentals.",
+  },
+  {
+    institution: "Aptech",
+    credential: "Diploma in Software Engineering",
+    faculty: "Software Engineering",
+    period: "2024 — 2027",
+    status: "In Progress",
+    detail:
+      "Three-year structured software engineering diploma covering programming, databases, web development, and software design practices — running alongside professional work.",
+  },
+  {
+    institution: "University of Karachi",
+    credential: "BS Computer Science (First Year)",
+    faculty: "Computer Science",
+    period: "2026 — 2030",
+    status: "In Progress",
+    detail:
+      "Bachelor's degree in Computer Science — currently in first year, pursued alongside full-time development work.",
   },
 ];
 
@@ -155,6 +209,7 @@ export const navLinks = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
+  { label: "Education", href: "#education" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];

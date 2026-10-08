@@ -1,94 +1,122 @@
 "use client";
 
+import { EASE_OUT } from "@/lib/motion";
+
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { personalInfo, stats } from "@/lib/data";
-import CountUp from "./CountUp";
-import TechConstellation from "./TechConstellation";
+
+const focusChips = [
+  "Backend engineering",
+  "API design",
+  "Full-stack delivery",
+  "System design",
+];
 
 export default function About() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const fade = (delay: number) => ({
+    initial: { opacity: 0, y: 16 },
+    animate: isInView ? { opacity: 1, y: 0 } : {},
+    transition: { duration: 0.5, delay, ease: EASE_OUT },
+  });
+
   return (
     <section id="about" className="relative py-24 md:py-32 px-4">
       <div className="max-w-6xl mx-auto" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <p className="text-cyan font-mono text-sm mb-3">// About Me</p>
-          <h2 className="text-3xl md:text-5xl font-bold">
-            <span className="bg-gradient-to-r from-cyan to-purple bg-clip-text text-transparent">
-              The Story So Far
-            </span>
+        <motion.div {...fade(0)} className="mb-12">
+          <p className="eyebrow">About</p>
+          <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
+            Building software that holds up in production
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Bio card */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="gradient-border p-8"
-          >
-            <div className="gradient-border-inner p-6 rounded-2xl">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-3 h-3 rounded-full bg-pink" />
-                <div className="w-3 h-3 rounded-full bg-purple" />
-                <div className="w-3 h-3 rounded-full bg-cyan" />
-                <span className="text-gray-500 font-mono text-xs ml-2">
-                  about.tsx
-                </span>
-              </div>
-              <p className="text-gray-300 leading-relaxed mb-6">
-                {personalInfo.summary}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {["Laravel", "React", "Next.js", "Node.js", "TypeScript", "MySQL"].map(
-                  (tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 rounded-full text-xs font-mono bg-purple/10 text-purple border border-purple/20"
-                    >
-                      {tag}
-                    </span>
-                  )
-                )}
-              </div>
+        <div className="grid md:grid-cols-12 gap-10 md:gap-12">
+          {/* Bio — 7 cols */}
+          <motion.div {...fade(0.1)} className="md:col-span-7">
+            <p className="text-base md:text-[17px] leading-relaxed text-muted max-w-[65ch]">
+              {personalInfo.summary}
+            </p>
+            <p className="mt-5 text-base leading-relaxed text-muted max-w-[65ch]">
+              Over three years I&rsquo;ve worked across Laravel backends, Node.js
+              services, and React and Next.js frontends — designing REST APIs,
+              modeling relational data, and building authentication and
+              role-based access systems that stay maintainable as products grow.
+            </p>
+            <p className="mt-5 text-base leading-relaxed text-muted max-w-[65ch]">
+              I&rsquo;m currently deepening that foundation formally as well — a BS in
+              Computer Science at the University of Karachi alongside an Aptech
+              software engineering diploma, while working full-time.
+            </p>
+
+            <div className="mt-7 flex flex-wrap gap-2">
+              {["Laravel", "Node.js", "React", "Next.js", "TypeScript", "MySQL"].map(
+                (tag) => (
+                  <span key={tag} className="chip">
+                    {tag}
+                  </span>
+                )
+              )}
             </div>
           </motion.div>
 
-          {/* Stats + Tech Constellation */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="space-y-6"
-          >
-            <div className="grid grid-cols-2 gap-4">
-              {stats.map((stat, i) => (
-                <div
-                  key={stat.label}
-                  className="glass-card rounded-2xl p-6 text-center hover:border-cyan/30 transition-all duration-300"
-                >
-                  <div className="text-3xl md:text-4xl font-bold font-mono text-cyan mb-2">
-                    <CountUp
-                      target={stat.value}
-                      isInView={isInView}
-                      delay={i * 0.2}
-                    />
-                    {stat.label === "Cups of Coffee" ? "+" : "+"}
-                  </div>
-                  <div className="text-gray-500 text-sm">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+          {/* Facts panel — 5 cols */}
+          <motion.div {...fade(0.2)} className="md:col-span-5">
+            <div
+              className="rounded-xl border border-edge overflow-hidden"
+              style={{ background: "var(--surface)" }}
+            >
+              {/* Real stats */}
+              <div className="grid grid-cols-3 divide-x divide-edge">
+                {stats
+                  .filter((s) => s.label !== "Cups of Coffee")
+                  .map((stat) => (
+                    <div key={stat.label} className="px-4 py-5 text-center">
+                      <div className="text-2xl font-semibold tracking-tight">
+                        {stat.value}
+                      </div>
+                      <div className="mt-1 text-[11px] text-faint leading-tight">
+                        {stat.label}
+                      </div>
+                    </div>
+                  ))}
+              </div>
 
-            <TechConstellation isVisible={isInView} />
+              <div className="h-px" style={{ background: "var(--border)" }} />
+
+              <dl className="p-5 space-y-4 text-sm">
+                <div>
+                  <dt className="eyebrow">Focus</dt>
+                  <dd className="mt-1.5 flex flex-wrap gap-1.5">
+                    {focusChips.map((c) => (
+                      <span key={c} className="chip">
+                        {c}
+                      </span>
+                    ))}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="eyebrow">Currently</dt>
+                  <dd className="mt-1.5 text-muted">
+                    Full Stack Developer @ THE HELPEX
+                    <span className="text-faint"> · 2023 — Present</span>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="eyebrow">Location</dt>
+                  <dd className="mt-1.5 text-muted">{personalInfo.location}</dd>
+                </div>
+                <div>
+                  <dt className="eyebrow">Status</dt>
+                  <dd className="mt-1.5 flex items-center gap-2 text-muted">
+                    <span className="status-dot" />
+                    Available for work
+                  </dd>
+                </div>
+              </dl>
+            </div>
           </motion.div>
         </div>
       </div>
