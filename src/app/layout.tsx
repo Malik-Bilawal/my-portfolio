@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     template: "%s | Muhammad Bilawal",
   },
   description:
-    "Full Stack Developer specializing in Laravel, Node.js, React, and Next.js. Building robust, scalable web applications with 3+ years of experience.",
+    "Full Stack Developer specializing in Laravel, Node.js, React, and Next.js. Building robust, scalable web applications with 2+ years of experience.",
   keywords: [
     "Muhammad Bilawal",
     "Full Stack Developer",

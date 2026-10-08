@@ -5,6 +5,7 @@ import { EASE_OUT } from "@/lib/motion";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { skills, type SkillCategory } from "@/lib/data";
+import { brandIcons } from "@/lib/brand-icons";
 
 const categories: { key: SkillCategory; label: string }[] = [
   { key: "backend", label: "Backend" },
@@ -48,14 +49,41 @@ export default function Skills() {
               <ul className="space-y-2">
                 {skills
                   .filter((s) => s.category === cat.key)
-                  .map((skill) => (
-                    <li
-                      key={skill.name}
-                      className="px-3.5 py-2.5 rounded-lg border border-edge bg-surface text-sm text-foreground hover:border-edge-strong transition-colors"
-                    >
-                      {skill.name}
-                    </li>
-                  ))}
+                  .map((skill) => {
+                    const brand = brandIcons[skill.name];
+                    const Icon = skill.icon;
+                    return (
+                      <li
+                        key={skill.name}
+                        style={
+                          brand
+                            ? ({ "--brand": brand.hex } as React.CSSProperties)
+                            : undefined
+                        }
+                        className="group flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-edge bg-surface text-sm text-foreground hover:border-edge-strong transition-colors"
+                      >
+                        {brand ? (
+                          <svg
+                            viewBox="0 0 24 24"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            className="text-faint shrink-0 transition-colors duration-200 group-hover:text-[color:var(--brand)]"
+                            aria-hidden
+                          >
+                            <path d={brand.path} />
+                          </svg>
+                        ) : (
+                          <Icon
+                            size={16}
+                            className="text-faint shrink-0"
+                            aria-hidden
+                          />
+                        )}
+                        <span>{skill.name}</span>
+                      </li>
+                    );
+                  })}
               </ul>
             </motion.div>
           ))}

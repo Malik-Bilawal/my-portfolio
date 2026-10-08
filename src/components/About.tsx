@@ -40,7 +40,7 @@ export default function About() {
               {personalInfo.summary}
             </p>
             <p className="mt-5 text-base leading-relaxed text-muted max-w-[65ch]">
-              Over three years I&rsquo;ve worked across Laravel backends, Node.js
+              Over the past few years I&rsquo;ve worked across Laravel backends, Node.js
               services, and React and Next.js frontends — designing REST APIs,
               modeling relational data, and building authentication and
               role-based access systems that stay maintainable as products grow.
@@ -48,7 +48,8 @@ export default function About() {
             <p className="mt-5 text-base leading-relaxed text-muted max-w-[65ch]">
               I&rsquo;m currently deepening that foundation formally as well — a BS in
               Computer Science at the University of Karachi alongside an Aptech
-              software engineering diploma, while working full-time.
+              software engineering diploma, built on hands-on professional
+              development work.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-2">
@@ -98,10 +99,10 @@ export default function About() {
                   </dd>
                 </div>
                 <div>
-                  <dt className="eyebrow">Currently</dt>
+                  <dt className="eyebrow">Last role</dt>
                   <dd className="mt-1.5 text-muted">
                     Full Stack Developer @ THE HELPEX
-                    <span className="text-faint"> · 2023 — Present</span>
+                    <span className="text-faint"> · 2023 — 2026</span>
                   </dd>
                 </div>
                 <div>

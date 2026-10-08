@@ -75,8 +75,8 @@ export const experiences = [
   {
     company: "THE HELPEX",
     role: "Full Stack Developer",
-    period: "2023 — Present",
-    current: true,
+    period: "2023 — 2026",
+    current: false,
     description:
       "Developed and maintained full-stack web applications with a strong focus on reliable backend systems and user experience.",
     achievements: [
@@ -200,7 +200,7 @@ export const education = [
     period: "2026 — 2030",
     status: "In Progress",
     detail:
-      "Bachelor's degree in Computer Science — currently in first year, pursued alongside full-time development work.",
+      "Bachelor's degree in Computer Science — currently in first year, pursued alongside professional development work.",
   },
 ];
 

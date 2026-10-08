@@ -4,7 +4,7 @@ import { EASE_OUT } from "@/lib/motion";
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageSquare, X, Send, RotateCcw } from "lucide-react";
+import { MessageSquare, X, Send, RotateCcw, Trash2 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import {
   GREETING,
@@ -116,6 +116,16 @@ export default function ChatWidget() {
     [messages, streaming]
   );
 
+  const clearHistory = () => {
+    setMessages([]);
+    try {
+      sessionStorage.removeItem(STORAGE_KEY);
+    } catch {
+      /* storage blocked */
+    }
+    inputRef.current?.focus();
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
@@ -179,13 +189,24 @@ export default function ChatWidget() {
                   </p>
                 </div>
               </div>
-              <button
-                onClick={() => setOpen(false)}
-                className="w-8 h-8 rounded-lg flex items-center justify-center text-muted hover:text-foreground hover:bg-elevated transition-colors"
-                aria-label="Close assistant"
-              >
-                <X size={16} />
-              </button>
+              <div className="flex items-center gap-1 shrink-0">
+                <button
+                  onClick={clearHistory}
+                  disabled={messages.length === 0}
+                  className="w-8 h-8 rounded-lg flex items-center justify-center text-muted hover:text-danger hover:bg-danger-soft disabled:opacity-35 disabled:cursor-not-allowed transition-colors"
+                  aria-label="Clear chat history"
+                  title="Clear chat history"
+                >
+                  <Trash2 size={15} />
+                </button>
+                <button
+                  onClick={() => setOpen(false)}
+                  className="w-8 h-8 rounded-lg flex items-center justify-center text-muted hover:text-foreground hover:bg-elevated transition-colors"
+                  aria-label="Close assistant"
+                >
+                  <X size={16} />
+                </button>
+              </div>
             </div>
 
             {/* Messages */}

@@ -17,7 +17,7 @@ const rise = {
 const facts = [
   { label: "Status", value: "Available for work", dot: true },
   { label: "Based in", value: "Karachi, Pakistan · UTC+5" },
-  { label: "Currently", value: "Full Stack Developer @ THE HELPEX" },
+  { label: "Last role", value: "Full Stack Developer @ THE HELPEX" },
   { label: "Experience", value: "2+ years · 10+ projects shipped" },
 ];
 
@@ -102,7 +102,7 @@ export default function Hero() {
               animate="show"
               className="mt-7 text-xs text-faint font-mono"
             >
-              Previously SYBRID · Open to remote roles
+              Previously THE HELPEX &amp; SYBRID · Open to remote roles
             </motion.p>
           </div>
 
