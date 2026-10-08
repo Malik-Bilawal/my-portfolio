@@ -15,6 +15,9 @@ type FormState = {
 
 type SubmitStatus = "idle" | "loading" | "success" | "error";
 
+// Web3Forms access keys are public by design (meant for front-end forms).
+const WEB3FORMS_KEY = "697ad10d-201a-4416-827b-ebc15d9c05ad";
+
 export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -40,13 +43,43 @@ export default function Contact() {
 
     setStatus("loading");
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      const data = await res.json();
-      if (!res.ok || !data.success) throw new Error(data.message || "Submission failed");
+      const payload = {
+        access_key: WEB3FORMS_KEY,
+        name: form.name,
+        email: form.email,
+        message: form.message,
+        botcheck: "",
+        from_name: "Portfolio Website",
+      };
+
+      // 1) Primary: browser → Web3Forms directly
+      //    (real browser TLS passes their bot protection; server fetch often doesn't)
+      let sent = false;
+      try {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json().catch(() => null);
+        sent = Boolean(res.ok && data?.success);
+      } catch {
+        /* fall through to server route */
+      }
+
+      // 2) Fallback: server route (different network path)
+      if (!sent) {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        });
+        const data = await res.json().catch(() => null);
+        if (!res.ok || !data?.success) {
+          throw new Error(data?.message || "Submission failed");
+        }
+      }
+
       setStatus("success");
       setForm({ name: "", email: "", message: "" });
       setErrors({});
