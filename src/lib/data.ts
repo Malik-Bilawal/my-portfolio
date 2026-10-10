@@ -15,7 +15,7 @@ import {
 export const personalInfo = {
   name: "Muhammad Bilawal",
   title: "Full Stack Developer",
-  tagline: "Building the Future, One Commit at a Time",
+  tagline: "Engineering with precision — from first schema to final deploy",
   email: "its.bilawal33@gmail.com",
   phone: "+92 317 0236726",
   github: "https://github.com/malik-bilawal",

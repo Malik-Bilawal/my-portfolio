@@ -21,7 +21,7 @@ export default function Experience() {
         >
           <p className="eyebrow">Experience</p>
           <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
-            Where I&rsquo;ve worked
+            Where I&rsquo;ve shipped
           </h2>
         </motion.div>
 

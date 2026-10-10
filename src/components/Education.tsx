@@ -21,7 +21,7 @@ export default function Education() {
         >
           <p className="eyebrow">Education</p>
           <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
-            Academic background
+            Foundations in computer science
           </h2>
         </motion.div>
 

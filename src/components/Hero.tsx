@@ -53,6 +53,7 @@ export default function Hero() {
               className="mt-4 text-lg md:text-xl text-muted"
             >
               {personalInfo.title}
+              <span className="text-muted"> — engineering with precision</span>
             </motion.p>
 
             <motion.p
@@ -62,9 +63,9 @@ export default function Hero() {
               animate="show"
               className="mt-6 max-w-[58ch] text-sm md:text-base leading-relaxed text-muted"
             >
-              I build backend systems, APIs, and full-stack products with Laravel,
-              Node.js, React, and Next.js — from database schema to production
-              deployment.
+              I engineer backend systems, APIs, and full-stack products with
+              Laravel, Node.js, React, and Next.js — precise at every layer,
+              from database schema to production deployment.
             </motion.p>
 
             <motion.div
@@ -118,7 +119,7 @@ export default function Hero() {
           >
             <div className="px-5 py-3 border-b border-edge flex items-center justify-between">
               <span className="eyebrow">Profile</span>
-              <span className="text-[11px] font-mono text-faint">
+              <span className="text-[11px] font-mono text-faint" suppressHydrationWarning>
                 {new Date().getFullYear()} ©
               </span>
             </div>

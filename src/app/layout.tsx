@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
-import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "next-themes";
+import { SITE_URL } from "@/lib/site";
+import { faqs } from "@/lib/faq";
 import "./globals.css";
 
 const inter = Inter({
@@ -24,7 +25,7 @@ const structuredData = {
   "@type": "Person",
   name: "Muhammad Bilawal",
   jobTitle: "Full Stack Developer",
-  url: "https://bilawal.dev",
+  url: SITE_URL,
   email: "its.bilawal33@gmail.com",
   address: {
     "@type": "PostalAddress",
@@ -51,12 +52,13 @@ const structuredData = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Muhammad Bilawal | Full Stack Developer",
     template: "%s | Muhammad Bilawal",
   },
   description:
-    "Full Stack Developer specializing in Laravel, Node.js, React, and Next.js. Building robust, scalable web applications with 2+ years of experience.",
+    "Full Stack Developer engineering with precision — Laravel, Node.js, React, Next.js. Robust, scalable web apps shipped with 2+ years of production experience.",
   keywords: [
     "Muhammad Bilawal",
     "Full Stack Developer",
@@ -78,17 +80,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://muhammadbilawal.dev",
+    url: SITE_URL,
     siteName: "Muhammad Bilawal Portfolio",
     title: "Muhammad Bilawal | Full Stack Developer",
     description:
-      "Full Stack Developer specializing in Laravel, Node.js, React, and Next.js. Building robust, scalable web applications.",
+      "Full Stack Developer engineering with precision — Laravel, Node.js, React, Next.js. Robust, scalable web applications.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Muhammad Bilawal | Full Stack Developer",
     description:
-      "Full Stack Developer specializing in Laravel, Node.js, React, and Next.js.",
+      "Full Stack Developer engineering with precision — Laravel, Node.js, React, Next.js.",
   },
   robots: {
     index: true,
@@ -102,8 +104,21 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://muhammadbilawal.dev",
+    canonical: "/",
   },
+};
+
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: f.answer,
+    },
+  })),
 };
 
 export default function RootLayout({
@@ -115,12 +130,14 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jetbrains.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <Script
-          id="structured-data"
+        {/* Inline JSON-LD (not next/script) so it ships in static HTML */}
+        <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
         />
       </head>
       <body>

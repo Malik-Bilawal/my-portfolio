@@ -29,7 +29,7 @@ export default function About() {
         <motion.div {...fade(0)} className="mb-8 md:mb-12">
           <p className="eyebrow">About</p>
           <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
-            Building software that holds up in production
+            Engineering software that holds up in production
           </h2>
         </motion.div>
 

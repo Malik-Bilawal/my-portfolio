@@ -4,20 +4,17 @@ import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import ScrollProgress from "@/components/ScrollProgress";
 
-const Hero = dynamic(() => import("@/components/Hero"), { ssr: false });
-const About = dynamic(() => import("@/components/About"), { ssr: false });
-const Skills = dynamic(() => import("@/components/Skills"), { ssr: false });
-const Experience = dynamic(() => import("@/components/Experience"), {
-  ssr: false,
-});
-const Education = dynamic(() => import("@/components/Education"), {
-  ssr: false,
-});
-const Projects = dynamic(() => import("@/components/Projects"), {
-  ssr: false,
-});
-const Contact = dynamic(() => import("@/components/Contact"), { ssr: false });
-const Footer = dynamic(() => import("@/components/Footer"), { ssr: false });
+// Content sections are server-rendered so crawlers and AI agents receive
+// real HTML. Only the chat widget stays client-only (sessionStorage history).
+const Hero = dynamic(() => import("@/components/Hero"));
+const About = dynamic(() => import("@/components/About"));
+const Skills = dynamic(() => import("@/components/Skills"));
+const Experience = dynamic(() => import("@/components/Experience"));
+const Education = dynamic(() => import("@/components/Education"));
+const Projects = dynamic(() => import("@/components/Projects"));
+const Faq = dynamic(() => import("@/components/Faq"));
+const Contact = dynamic(() => import("@/components/Contact"));
+const Footer = dynamic(() => import("@/components/Footer"));
 const ChatWidget = dynamic(() => import("@/components/ChatWidget"), {
   ssr: false,
 });
@@ -33,6 +30,7 @@ export default function Home() {
       <Experience />
       <Education />
       <Projects />
+      <Faq />
       <Contact />
       <Footer />
       <ChatWidget />

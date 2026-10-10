@@ -113,7 +113,7 @@ export default function Contact() {
         <motion.div {...fade(0)} className="mb-8 md:mb-12">
           <p className="eyebrow">Contact</p>
           <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
-            Let&rsquo;s talk about your project
+            Let&rsquo;s build something that lasts
           </h2>
           <p className="mt-3 text-sm text-muted max-w-[60ch]">
             Have a role or project in mind? Send a message — I reply within 24 hours.

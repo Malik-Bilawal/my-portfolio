@@ -38,7 +38,7 @@ export default function Projects() {
         >
           <p className="eyebrow">Selected Work</p>
           <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
-            Projects
+            Systems that ship and scale
           </h2>
         </motion.div>
 

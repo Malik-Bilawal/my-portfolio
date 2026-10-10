@@ -1,0 +1,21 @@
+# Muhammad Bilawal — Full Stack Developer
+
+> Full Stack Developer engineering with precision: backend systems, REST APIs, and full-stack products built with Laravel, Node.js, React, and Next.js — from database schema to production deployment. Based in Karachi, Pakistan (UTC+5), open to remote roles.
+
+Muhammad Bilawal has 2+ years of production experience and has delivered 10+ projects, including an enterprise commerce system with 40+ modules built over 1.3 years. His most recent role was Full Stack Developer at THE HELPEX (2023 — 2026), after a frontend internship at SYBRID (2022 — 2023). He is currently pursuing a BS in Computer Science at the University of Karachi alongside a software engineering diploma at Aptech.
+
+## Portfolio
+
+- [Home](https://my-portfolio-ysrh-sigma.vercel.app/): About, skills, experience, education, selected projects, FAQ, and contact
+- [About](https://my-portfolio-ysrh-sigma.vercel.app/#about): Bio, focus areas, and quick facts
+- [Skills](https://my-portfolio-ysrh-sigma.vercel.app/#skills): Laravel, PHP, Node.js, Python, React.js, Next.js, TypeScript, Tailwind CSS, MySQL, PostgreSQL, MongoDB, Redis, Docker, Git, Linux
+- [Experience](https://my-portfolio-ysrh-sigma.vercel.app/#experience): THE HELPEX — Full Stack Developer (2023 — 2026); SYBRID — Frontend Developer Intern (2022 — 2023)
+- [Education](https://my-portfolio-ysrh-sigma.vercel.app/#education): University of Karachi (BS CS, in progress), Aptech (SWE Diploma, in progress), Islamic College Karachi, Kiran Academy
+- [Projects](https://my-portfolio-ysrh-sigma.vercel.app/#projects): Luxorix/LUMS commerce management system (40+ modules), multi-vendor marketplace, Campus Coin AI budget tracker, Shahid Insaf Shoes ecommerce
+- [FAQ](https://my-portfolio-ysrh-sigma.vercel.app/#faq): Availability, experience, stack, projects, and contact
+- [Contact](https://my-portfolio-ysrh-sigma.vercel.app/#contact): Contact form, email, phone, and social profiles
+
+## Optional
+
+- [Resume PDF](https://my-portfolio-ysrh-sigma.vercel.app/Muhammad-Bilawal-Resume.pdf): Downloadable CV
+- [GitHub](https://github.com/Malik-Bilawal): Source code and projects

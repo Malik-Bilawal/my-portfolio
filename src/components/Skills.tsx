@@ -29,7 +29,7 @@ export default function Skills() {
         >
           <p className="eyebrow">Skills</p>
           <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
-            Technologies I work with
+            The stack I engineer with
           </h2>
         </motion.div>
 

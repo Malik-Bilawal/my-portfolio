@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://muhammadbilawal.dev/sitemap.xml
+Sitemap: https://my-portfolio-ysrh-sigma.vercel.app/sitemap.xml
