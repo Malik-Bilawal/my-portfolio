@@ -17,5 +17,5 @@ Muhammad Bilawal has 2+ years of production experience and has delivered 10+ pro
 
 ## Optional
 
-- [Resume PDF](https://my-portfolio-ysrh-sigma.vercel.app/Muhammad-Bilawal-Resume.pdf): Downloadable CV
+- [Resume PDF](https://my-portfolio-ysrh-sigma.vercel.app/Muhammad_Bilawal_Resume.pdf): Downloadable CV
 - [GitHub](https://github.com/Malik-Bilawal): Source code and projects

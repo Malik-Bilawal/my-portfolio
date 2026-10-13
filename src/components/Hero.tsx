@@ -88,7 +88,7 @@ export default function Hero() {
                 Get in touch
               </a>
               <a
-                href="/Muhammad-Bilawal-Resume.pdf"
+                href="/Muhammad_Bilawal_Resume.pdf"
                 download
                 className="h-11 px-5 rounded-lg text-sm font-medium text-muted hover:text-foreground transition-colors inline-flex items-center gap-2"
               >
