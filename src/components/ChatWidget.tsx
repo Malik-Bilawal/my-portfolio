@@ -149,7 +149,7 @@ export default function ChatWidget() {
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.2 }}
             onClick={() => setOpen(true)}
-            className="fixed bottom-5 right-5 z-50 h-12 pl-4 pr-5 rounded-full bg-accent hover:bg-accent-hover text-white text-sm font-medium flex items-center gap-2 shadow-lg transition-colors"
+            className="fixed bottom-5 right-5 z-50 h-12 pl-4 pr-5 rounded-full bg-accent hover:bg-accent-hover text-white! text-sm font-medium flex items-center gap-2 shadow-lg transition-colors"
             style={{ boxShadow: "0 8px 30px rgba(0,0,0,0.25)" }}
             aria-label="Open AI assistant"
           >
@@ -311,7 +311,7 @@ export default function ChatWidget() {
                 <button
                   onClick={() => send(input)}
                   disabled={!input.trim() || streaming}
-                  className="w-10 h-10 rounded-lg bg-accent hover:bg-accent-hover disabled:opacity-40 disabled:cursor-not-allowed text-white flex items-center justify-center transition-colors shrink-0"
+                  className="w-10 h-10 rounded-lg bg-accent hover:bg-accent-hover disabled:opacity-40 disabled:cursor-not-allowed text-white! flex items-center justify-center transition-colors shrink-0"
                   aria-label="Send message"
                 >
                   <Send size={16} />
