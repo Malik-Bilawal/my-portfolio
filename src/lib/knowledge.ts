@@ -19,6 +19,14 @@ const skillsByCategory = {
   tools: skills.filter((s) => s.category === "tools"),
 };
 
+const employmentStatus = experiences.some((e) => e.current)
+  ? "Currently employed at: " +
+    experiences
+      .filter((e) => e.current)
+      .map((e) => `${e.company} (${e.period})`)
+      .join(", ")
+  : "Not currently employed at any company — available for new opportunities. All roles below are PAST roles.";
+
 export const knowledgeBase = `
 IDENTITY
 - Name: ${personalInfo.name}
@@ -29,6 +37,9 @@ IDENTITY
 - GitHub: ${personalInfo.github}
 - LinkedIn: ${personalInfo.linkedin}
 - Available for work: Yes
+
+EMPLOYMENT STATUS
+- ${employmentStatus}
 
 SUMMARY
 ${personalInfo.summary}
@@ -46,7 +57,11 @@ WORK EXPERIENCE
 ${experiences
   .map(
     (e) => `
-- ${e.role} at ${e.company} (${e.period})${e.current ? " [CURRENT]" : ""}
+- ${e.role} at ${e.company} (${e.period}) — ${
+      e.current
+        ? "[CURRENT ROLE — he still works here]"
+        : "[PAST ROLE — finished, he does NOT work here anymore]"
+    }
   ${e.description}
   Achievements:
 ${e.achievements.map((a) => `    • ${a}`).join("\n")}`
@@ -92,6 +107,7 @@ SCOPE — strict rules
 7. Never fabricate projects, employers, dates, metrics, or education not in the knowledge base.
 8. For hiring or project inquiries, always mention he is available now and can be contacted at ${personalInfo.email} or via the contact form on this site.
 9. Keep answers short: 2–4 sentences, or a short bullet list when comparing things.
+10. Employment status is critical: only roles marked [CURRENT ROLE] are current. Roles marked [PAST ROLE] are finished — NEVER say or imply he "currently", "still", or "now" works there, even if the end year equals the current year. When asked where he currently works, answer that he is not currently employed and is available for new opportunities (unless a [CURRENT ROLE] exists in the knowledge base).
 
 KNOWLEDGE BASE
 ${knowledgeBase}
