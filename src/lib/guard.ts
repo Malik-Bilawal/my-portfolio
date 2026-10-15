@@ -65,6 +65,14 @@ const ANCHORS: RegExp[] = [
   /\b(luxorix|lums|campus coin|budget bee|shahid insaf|helplex|the helpex|sybrid|multi-?vendor|e-?commerce)\b/i,
   // contact
   /\b(email|phone|contact|reach (him|you)|github|linkedin|address|location|karachi|pakistan)\b/i,
+  // scenarios & hypotheticals about him
+  /\b(if (he|bilawal|muhammad)|joined|joining|onboard\w*|day[- ]?(one|1)|ramp[- ]?up|how (would|should|does|did|do) (he|they|you)|how (did|does|do) he|what if|suppose|scenario|situation)\b/i,
+  // engineering discourse / process questions
+  /\b(engineering (maturity|excellence|standards|practices|discipline)|architecture|scalab\w+|performance|security|authentication|authorization|database (design|schema)|schema design|api design|caching|workflow|process(es)?|methodology|approach|handling|handle[sd]?|trade[- ]?offs?)\b/i,
+  // team / behavioral / interview framing
+  /\b(team|culture|collaborat\w+|communicat\w+|deadline|pressure|priorit\w+|code review|mentor\w*|lead(ership|ed|ing)?|ownership|ambiguity|stakeholders?|requirements?|strengths?|weaknesses?)\b/i,
+  // depth-seeking questions
+  /\b(in detail|deep[- ]?dive|elaborate|explain|describe|tell me more|everything about|more about|behind the scenes|walk me through|how (is|are|was|were) (it|this|that) (built|made|structured))\b/i,
 ];
 
 const GREETING_ONLY = /^\s*(hi|hello|hey|yo|salam|assalamualaikum|aoa|good (morning|afternoon|evening)|thanks?|thank you|bye|ok(ay)?)\s*[!.\-]*\s*$/i;

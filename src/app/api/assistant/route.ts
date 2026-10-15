@@ -71,11 +71,11 @@ export async function POST(req: Request) {
           Authorization: `Bearer ${apiKey}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          model,
-          stream: true,
-          max_tokens: 600,
-          temperature: 0.4,
+          body: JSON.stringify({
+            model,
+            stream: true,
+            max_tokens: 900,
+            temperature: 0.5,
           messages: [
             { role: "system", content: systemPrompt },
             ...cleaned,
