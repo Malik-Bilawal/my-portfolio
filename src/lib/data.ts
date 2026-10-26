@@ -166,9 +166,9 @@ export const projects = [
   },
   {
     title: "Cricket Academy Web App",
-    subtitle: "Academy Management Platform",
+    subtitle: "Premium Cricket Academy",
     description:
-      "Full-stack web application for running a cricket academy — player registrations, training schedules, attendance, and progress tracking in one place. The Next.js App Router powers both the frontend and the backend API routes, backed by MySQL.",
+      "Full-stack web application for a UK based Cricke Academy. The Next.js App Router powers both the frontend and the backend API routes, backed by MySQL.",
     tech: ["React(Next js)", "Next.js App Router", "MySQL"],
     highlights: [
       "Next.js App Router — frontend + API",
@@ -182,7 +182,7 @@ export const projects = [
     title: "Buraq ERP",
     subtitle: "Enterprise Resource Planning System",
     description:
-      "An ERP system built on a Django backend covering core business operations — inventory, accounting, and day-to-day resource management workflows, backed by PostgreSQL.",
+      "Contribute in Enterprice ERP build on a Django backend covering core business operations — inventory, accounting, and day-to-day resource management workflows, backed by PostgreSQL.",
     tech: ["Django", "Python", "PostgreSQL"],
     highlights: [
       "Django backend",
