@@ -47,6 +47,7 @@ export const skills: Skill[] = [
   { name: "Laravel", icon: Server, proficiency: 92, category: "backend" },
   { name: "Node.js", icon: Zap, proficiency: 85, category: "backend" },
   { name: "Python", icon: Terminal, proficiency: 75, category: "backend" },
+  { name: "Django", icon: Server, proficiency: 75, category: "backend" },
   { name: "REST APIs", icon: Globe, proficiency: 90, category: "backend" },
   { name: "Authentication", icon: Shield, proficiency: 88, category: "backend" },
   { name: "Redis", icon: Database, proficiency: 80, category: "backend" },
@@ -160,6 +161,34 @@ export const projects = [
       "Real-time updates",
       "REST API",
       "Mobile first  UI",
+    ],
+    featured: false,
+  },
+  {
+    title: "Cricket Academy Web App",
+    subtitle: "Academy Management Platform",
+    description:
+      "Full-stack web application for running a cricket academy — player registrations, training schedules, attendance, and progress tracking in one place. The Next.js App Router powers both the frontend and the backend API routes, backed by MySQL.",
+    tech: ["React(Next js)", "Next.js App Router", "MySQL"],
+    highlights: [
+      "Next.js App Router — frontend + API",
+      "Player & session management",
+      "Attendance & progress tracking",
+      "MySQL-backed data layer",
+    ],
+    featured: false,
+  },
+  {
+    title: "Buraq ERP",
+    subtitle: "Enterprise Resource Planning System",
+    description:
+      "An ERP system built on a Django backend covering core business operations — inventory, accounting, and day-to-day resource management workflows, backed by PostgreSQL.",
+    tech: ["Django", "Python", "PostgreSQL"],
+    highlights: [
+      "Django backend",
+      "Business operations modules",
+      "PostgreSQL data layer",
+      "Admin-driven workflows",
     ],
     featured: false,
   },

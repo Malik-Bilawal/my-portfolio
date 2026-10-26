@@ -60,9 +60,9 @@ const ANCHORS: RegExp[] = [
   // work & hiring
   /\b(experience|skill|tech stack|technology|technologies|stack|project|portfolio|work|worked|working|job|role|hiring|hire|available|availability|freelance|remote|onboarding|notice period|salary|rate|charge|pricing|budget|cost|cv|resume|summary|background|education|degree|diploma|university|college|school|internship|company|employer|timeline|achievement)\b/i,
   // stack keywords (a question containing one is almost certainly about his stack)
-  /\b(laravel|php|node\.?js|express|react|next\.?js|typescript|javascript|alpine|mysql|postgres|mongodb|redis|docker|git|tailwind|api|rest|graphql|wordpress|linux|vs ?code|postman)\b/i,
+  /\b(laravel|php|node\.?js|express|react|next\.?js|typescript|javascript|alpine|mysql|postgres|postgresql|mongodb|redis|docker|git|tailwind|api|rest|graphql|wordpress|django|python|linux|vs ?code|postman)\b/i,
   // his actual projects / employers
-  /\b(luxorix|lums|campus coin|budget bee|shahid insaf|helplex|the helpex|sybrid|multi-?vendor|e-?commerce)\b/i,
+  /\b(luxorix|lums|campus coin|budget bee|shahid insaf|buraq|cricket|helplex|the helpex|sybrid|multi-?vendor|e-?commerce|erp)\b/i,
   // contact
   /\b(email|phone|contact|reach (him|you)|github|linkedin|address|location|karachi|pakistan)\b/i,
   // scenarios & hypotheticals about him

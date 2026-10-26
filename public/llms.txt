@@ -8,10 +8,10 @@ Muhammad Bilawal has 2+ years of production experience and has delivered 10+ pro
 
 - [Home](https://my-portfolio-ysrh-sigma.vercel.app/): About, skills, experience, education, selected projects, FAQ, and contact
 - [About](https://my-portfolio-ysrh-sigma.vercel.app/#about): Bio, focus areas, and quick facts
-- [Skills](https://my-portfolio-ysrh-sigma.vercel.app/#skills): Laravel, PHP, Node.js, Python, React.js, Next.js, TypeScript, Tailwind CSS, MySQL, PostgreSQL, MongoDB, Redis, Docker, Git, Linux
+- [Skills](https://my-portfolio-ysrh-sigma.vercel.app/#skills): Laravel, PHP, Node.js, Python, Django, React.js, Next.js, TypeScript, Tailwind CSS, MySQL, PostgreSQL, MongoDB, Redis, Docker, Git, Linux
 - [Experience](https://my-portfolio-ysrh-sigma.vercel.app/#experience): THE HELPEX — Full Stack Developer (2023 — 2026); SYBRID — Frontend Developer Intern (2022 — 2023)
 - [Education](https://my-portfolio-ysrh-sigma.vercel.app/#education): University of Karachi (BS CS, in progress), Aptech (SWE Diploma, in progress), Islamic College Karachi, Kiran Academy
-- [Projects](https://my-portfolio-ysrh-sigma.vercel.app/#projects): Luxorix/LUMS commerce management system (40+ modules), multi-vendor marketplace, Campus Coin AI budget tracker, Shahid Insaf Shoes ecommerce
+- [Projects](https://my-portfolio-ysrh-sigma.vercel.app/#projects): Luxorix/LUMS commerce management system (40+ modules), multi-vendor marketplace, Campus Coin AI budget tracker, Shahid Insaf Shoes ecommerce, Cricket Academy web app (Next.js App Router + MySQL), Buraq ERP (Django + PostgreSQL)
 - [FAQ](https://my-portfolio-ysrh-sigma.vercel.app/#faq): Availability, experience, stack, projects, and contact
 - [Contact](https://my-portfolio-ysrh-sigma.vercel.app/#contact): Contact form, email, phone, and social profiles
 

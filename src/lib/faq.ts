@@ -27,7 +27,7 @@ export const faqs: Faq[] = [
   {
     question: "What kind of projects has he built?",
     answer:
-      "An enterprise commerce management system with 40+ modules (ERP, HRMS, POS), a multi-vendor marketplace, an AI-powered student budget tracker, and a full-stack ecommerce store — from database schema to production deployment.",
+      "An enterprise commerce management system with 40+ modules (ERP, HRMS, POS), a multi-vendor marketplace, an AI-powered student budget tracker, a full-stack ecommerce store, a Django-based Buraq ERP, and a Next.js cricket academy platform — from database schema to production deployment.",
   },
   {
     question: "How can I contact him?",
